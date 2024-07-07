@@ -1,0 +1,8 @@
+ALTER TABLE bookings
+ADD COLUMN billing_day TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP;
+
+SELECT
+	billing_day,
+	TO_CHAR(billing_day, 'DD "Day" MM "Month" YYYY "Year" HH24:MM:SS') AS "Billing Day"
+FROM 
+	bookings;
